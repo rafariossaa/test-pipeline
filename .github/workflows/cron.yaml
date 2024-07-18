@@ -2,23 +2,26 @@ name: '[CI/CD] cron-md-linter'
 
 on:
   schedule:
-    - cron: '0/5 * * * *'
+    - cron: '0/1 * * * *'
 
 jobs:
   cron-md-linter:
    runs-on: ubuntu-latest
    steps:
-    - name: Install markdownlint
-      run: npm install -g markdownlint-cli@0.33.0
-    - name: Checkout project
-      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
-    - name: Execute markdownlint
-      env:
-        TEMP_OUTPUT: "${{runner.temp}}/output"
-      run: |
-        for i in $(ls -1); do
-          echo markdownlint -o "${TEMP_OUTPUT}" ${i}
-          # markdownlint -o "${TEMP_OUTPUT}" ${i}
-          markdownlint ${i}
-        done
-        cat "${TEMP_OUTPUT}"
+     #    - name: Install markdownlint
+     #      run: npm install -g markdownlint-cli@0.33.0
+     #    - name: Checkout project
+     #      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+     #    - name: Execute markdownlint
+     #      env:
+     #        TEMP_OUTPUT: "${{runner.temp}}/output"
+     #      run: |
+     #        for i in $(ls -1); do
+     #          echo markdownlint -o "${TEMP_OUTPUT}" ${i}
+     #          # markdownlint -o "${TEMP_OUTPUT}" ${i}
+     #          markdownlint ${i}
+     #        done
+     #        cat "${TEMP_OUTPUT}"
+     - name: List files
+       run: |
+         ls -l
