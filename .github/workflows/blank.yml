@@ -1,0 +1,16 @@
+name: List Files Every 5 Minutes
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  list-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: List Directory Contents
+        run: |
+          ls /
