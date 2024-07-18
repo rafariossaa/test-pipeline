@@ -2,7 +2,7 @@ name: '[CI/CD] cron-md-linter'
 
 on:
   schedule:
-    - cron: '0/7 * * * *'
+    - cron: '*/7 * * * *'
 
 jobs:
   cron-md-linter:
